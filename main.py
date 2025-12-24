@@ -6,7 +6,12 @@ chosen_word = random.choice(word_list)
 
 print(chosen_word)
 
-while True:
+game_over = False
+
+correct_letter = []
+
+
+while not game_over:
 
     guess = input("Guess a letter: ").lower()
 
@@ -22,7 +27,11 @@ while True:
     for letter in chosen_word:
         if letter == guess:
             display += letter
+            correct_letter.append(guess)
             
+        elif letter in correct_letter:
+            display += letter
+                
         else:
             display += "_"
             
